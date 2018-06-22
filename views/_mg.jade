@@ -1,0 +1,155 @@
+﻿doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible",content="IE=edge")
+        meta(name="viewport",content="width=device-width, initial-scale=1")
+        link(rel="stylesheet",href="/csslib/angular-material.min.css")
+        link(rel="stylesheet",href="/css/fw.css")
+        style(type="text/css").
+            md-toolbar[name=header] {
+                background-color: #222;
+                min-height: 50px;
+                height: 50px;
+            }
+            md-toolbar[name=header] div.md-toolbar-tools {
+                height: 50px;
+            }
+        title 后台管理 - ITSchool
+        script(src="/jslib/jquery.js")
+    body(ng-app="myApp",ng-cloak,ng-controller="myController")
+        md-toolbar(name="header",layout="row",md-whiteframe="6",style="z-index:99;position:fixed;top:0px")
+            div(class="md-toolbar-tools")
+                md-button(class="md-icon-button" hide-gt-sm ng-click="toggleLeft()" aria-label="Show Left Navs")
+                    md-icon menu
+
+                span(flex,layout="row",md-truncate,style="height:100%")
+                    a(class="logo",href="/") ITSchool - 后台管理系统
+
+                md-menu(md-offset="0 50",md-position-mode="target-right target")
+                    md-button(ng-click="$mdMenu.open($event)",class="md-icon-button")
+                        md-icon more_vert
+                    md-menu-content(width="3")
+                        md-menu-item(md-autofocus="false")
+                            md-button(ng-click="changePwd()")
+                                md-icon security
+                                | 修改密码
+                        md-menu-divider
+                        md-menu-item(md-autofocus="false")
+                            md-button(ng-click="logout()")
+                                md-icon(class="md-warn") power_settings_new
+                                | 退出
+
+        div(id="divRootRow",flex,layout="row",style="padding-top:50px;")
+            md-sidenav(md-component-id="left",md-is-locked-open="$mdMedia('gt-sm')",class="md-whiteframe-z2 left-menus")
+                ul(class="left-menus-navs",ng-click="toggleLeft()")
+                    li
+                        md-button(ui-sref="admins",ng-class="{actived:leftMenus_isActived('admins')}")
+                            i(class="material-icons") account_circle
+                            span 管理员
+                    li
+                        md-button(ui-sref="mg_users",ng-class="{actived:leftMenus_isActived('admin_users')}")
+                            i(class="material-icons") account_circle
+                            span 用户管理
+                    li
+                        md-button(ui-sref="mg_sysconf",ng-class="{actived:leftMenus_isActived('mg_sysconf')}")
+                            i(class="material-icons") account_circle
+                            span 系统管理
+                    li
+                        md-button(ui-sref="mg_statistics",ng-class="{actived:leftMenus_isActived('mg_statistics')}")
+                            i(class="material-icons") account_circle
+                            span 数据统计
+            md-content(flex,id="content")
+
+        script(src="/jslib/angular.min.js")
+        script(src="/jslib/angular-ui-router.min.js")
+        script(src="/jslib/angular-animate.min.js")
+        script(src="/jslib/angular-aria.min.js")
+        script(src="/jslib/angular-messages.min.js")
+        script(src="/jslib/angular-sanitize.min.js")
+        script(src="/jslib/angular-material.min.js")
+        script(src="/jslib/require.js")
+
+        script(type="text/javascript").
+            window.CONFIG = {
+                modules: ['ngSanitize'],
+                root: '../_mg/',
+                routes: [{
+                    name:'admins',
+                    url:'/admins'
+                },{
+                    name:'admin_new',
+                    url:'/admin_new'
+                },{
+                    name:'admin_chgpwd',
+                    url:'/admin_chgpwd/:uid'
+                },{
+                    name:'admin_update',
+                    url:'/admin_update/:uid'
+                },{
+                    name: 'admin_role_new',
+                    url:'/admin_role_new'
+                },{
+                    name: 'admin_role_update',
+                    url:'/admin_role_update/:name'
+                },{
+                    name: 'admin_permissions',
+                    url: '/admin_permissions'
+                },{
+                    name: 'admin_permission_new',
+                    url: '/admin_permission_new'
+                },{
+                    name: 'admin_permission_update',
+                    url: '/admin_permission_update/:name'
+                },{
+                    name:'mg_users',
+                    url:'/mg_users'
+                },{
+                    name:'mg_users_check',
+                    url:'/mg_users_check'
+                },{
+                    name:'mg_projects',
+                    url:'/mg_projects'
+                },{
+                    name:'mg_projects_check',
+                    url:'/mg_projects_check'
+                },{
+                    name:'mg_sysconf',
+                    url:'/mg_sysconf'
+                },{
+                    name:'mg_sysconf_check',
+                    url:'/mg_sysconf_check'
+                },{
+                    name:'mg_statistics',
+                    url:'/mg_statistics'
+                }],
+                appController: ['$scope', '$http' , '$state', function ($scope, $http, $state) {
+                    $state.go('admins');
+                    // 用户登出
+                    $scope.logout = function () {
+                        $http.post('/mglogout', {}).then(function (result) {
+                            location.reload();
+                        });
+                    };
+
+                    // 修改自己的密码
+                    $scope.changePwd = function () {
+                        // 打开一个对话框，
+                        // 第一个参数为对话框的名字，下面这个示例实际会加载以下路径：window.CONFIG.root + admin_chgpwd_self/admin_chgpwd_self.js
+                        // 如果有参数需要传给该对话框的controller，则使用第二个参数。如果第二个参数传 { id: 10 }，那么在对话框的controller中可以这样取得：$scope.$params.id
+                        // 第三个参数为对话框相关的配置定义，参考：https://material.angularjs.org/latest/api/service/$mdDialog#mddialog-show-optionsorpreset
+                        // 模板的优先级为：[第3个参数为options， 第1个参数指定的文件为def]
+                        //          options.template > options.templateUrl > def.template > def.templateUrl
+                        // 在第一个参数指定的文件中可以定义对话框底部的buttons，用 btns 定义。
+                        //      [ {txt:'提交', class:'md-raised md-primary', fn: 'submitFn'} ]
+                        //      其中，txt为button上显示的文字，class为button的样式，fn为点击该button后执行的方法
+                        // 如果没有定义 btns，则会默认显示两个button，一个为“确定”，一个为“取消”，点击“确定”会执行“submit”方法，点击“取消”后会关闭对话框（调用的是$scope.$close()方法）。
+                        // 在controller中可调用 $scope.$close() 或 $scope.close() 关闭对话框
+                        app.dialog('admin_chgpwd_self', {}, {});
+                        // 也可以使用另一种方式打开对话框：
+                        // <button ui-sref="admin_chgpwd_self" my-target="dialog">打开对话框</button>
+                    };
+
+                }]
+            };
+        script(type="text/javascript",src="/js/fw.js")

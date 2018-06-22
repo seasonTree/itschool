@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>itschool</Name>
+    <RootNamespace>itschool</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>1e7dd89f-9903-43af-b1fe-19a11e209684</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>bin\www</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="api\user.js" />
+    <Compile Include="app.js" />
+    <Compile Include="AppTimer.js" />
+    <Compile Include="bll\BllAdminPermission.js" />
+    <Compile Include="bll\BllAdminRole.js" />
+    <Compile Include="bll\BllAdminUser.js" />
+    <Compile Include="bll\BllUser.js" />
+    <Compile Include="bll\BllSysCnf.js" />
+    <Compile Include="CacheManager.js" />
+    <Compile Include="dal\DataAccess.js" />
+    <Compile Include="dal\DbAdminPermission.js" />
+    <Compile Include="dal\DbAdminRole.js" />
+    <Compile Include="dal\DbAdminUser.js" />
+    <Compile Include="dal\DbUser.js" />
+    <Compile Include="dal\DbSysCnf.js" />
+    <Compile Include="entity\AdminPermission.js" />
+    <Compile Include="entity\AdminRole.js" />
+    <Compile Include="entity\AdminUser.js" />
+    <Compile Include="entity\SysCnf.js" />
+    <Compile Include="entity\User.js" />
+    <Compile Include="public\jslib\angular-animate.js" />
+    <Compile Include="public\jslib\angular-animate.min.js" />
+    <Compile Include="public\jslib\angular-aria.js" />
+    <Compile Include="public\jslib\angular-aria.min.js" />
+    <Compile Include="public\jslib\angular-material.min.js" />
+    <Compile Include="public\jslib\angular-messages.js" />
+    <Compile Include="public\jslib\angular-messages.min.js" />
+    <Compile Include="public\jslib\angular-sanitize.min.js" />
+    <Compile Include="public\jslib\angular-ui-router.js" />
+    <Compile Include="public\jslib\angular-ui-router.min.js" />
+    <Compile Include="public\jslib\angular.js" />
+    <Compile Include="public\jslib\angular.min.js" />
+    <Compile Include="public\jslib\q2.js" />
+    <Compile Include="public\jslib\require.js" />
+    <Compile Include="public\jslib\text.js" />
+    <Compile Include="public\js\fw.js" />
+    <Compile Include="public_dev\js\common.js" />
+    <Compile Include="public_dev\js\my.js" />
+    <Compile Include="public_dev\my\blog\index.js" />
+    <Compile Include="public_dev\my\course\index.js" />
+    <Compile Include="public_dev\my\index\index.js" />
+    <Compile Include="public_dev\_mg\admins\admins.js" />
+    <Compile Include="public_dev\_mg\admin_chgpwd\admin_chgpwd.js" />
+    <Compile Include="public_dev\_mg\admin_chgpwd_self\admin_chgpwd_self.js" />
+    <Compile Include="public_dev\_mg\admin_new\admin_new.js" />
+    <Compile Include="public_dev\_mg\admin_permissions\admin_permissions.js" />
+    <Compile Include="public_dev\_mg\admin_permission_new\admin_permission_new.js" />
+    <Compile Include="public_dev\_mg\admin_permission_update\admin_permission_update.js" />
+    <Compile Include="public_dev\_mg\admin_role_new\admin_role_new.js" />
+    <Compile Include="public_dev\_mg\admin_role_update\admin_role_update.js" />
+    <Compile Include="public_dev\_mg\admin_update\admin_update.js" />
+    <Compile Include="public_dev\_mg\index\index.js" />
+    <Compile Include="public_dev\_mg\mg_sysconf\mg_sysconf.js" />
+    <Compile Include="public_dev\_mg\mg_sysconf_check\mg_sysconf_check.js" />
+    <Compile Include="public_dev\_mg\mg_users\mg_users.js" />
+    <Compile Include="public_dev\_mg\mg_users_check\mg_users_check.js" />
+    <Compile Include="public_dev\_mg\services\adminPermissions.js" />
+    <Compile Include="public_dev\_mg\services\adminRoles.js" />
+    <Compile Include="public_dev\_mg\services\adminUsers.js" />
+    <Compile Include="public_dev\_mg\services\mg_sysconf.js" />
+    <Compile Include="public_dev\_mg\services\mg_users.js" />
+    <Compile Include="routes\_mg.js" />
+    <Compile Include="SiteConfig.js" />
+    <Compile Include="gulpfile.js" />
+    <Compile Include="Helper.js" />
+    <Compile Include="public\jslib\jquery.js" />
+    <Compile Include="routes\blogs.js" />
+    <Compile Include="routes\course.js" />
+    <Compile Include="routes\home.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="routes\showtime.js" />
+    <Compile Include="bin\www" />
+    <Content Include="db.sql" />
+    <Content Include="package.json" />
+    <Content Include="public\csslib\angular-material.min.css" />
+    <Content Include="public\css\fw.css" />
+    <Content Include="public\css\home.css" />
+    <Content Include="public\fonts\MaterialIcons-Regular.eot" />
+    <Content Include="public\fonts\MaterialIcons-Regular.ijmap" />
+    <Content Include="public\fonts\MaterialIcons-Regular.svg" />
+    <Content Include="public\fonts\MaterialIcons-Regular.ttf" />
+    <Content Include="public\fonts\MaterialIcons-Regular.woff" />
+    <Content Include="public\fonts\MaterialIcons-Regular.woff2" />
+    <Content Include="public\home\cyf\index.htm" />
+    <Content Include="public\icons\account_circle.svg" />
+    <Content Include="public\icons\add.svg" />
+    <Content Include="public\icons\arrow_back.svg" />
+    <Content Include="public\icons\check.svg" />
+    <Content Include="public\icons\check_box.svg" />
+    <Content Include="public\icons\check_box_outline_blank.svg" />
+    <Content Include="public\icons\close.svg" />
+    <Content Include="public\icons\cloud_upload.svg" />
+    <Content Include="public\icons\delete_forever.svg" />
+    <Content Include="public\icons\file.svg" />
+    <Content Include="public\icons\folder.svg" />
+    <Content Include="public\icons\format_indent_decrease_white_18px.svg" />
+    <Content Include="public\icons\format_indent_increase_white_18px.svg" />
+    <Content Include="public\icons\indeterminate_check_box.svg" />
+    <Content Include="public\icons\language_black.svg" />
+    <Content Include="public\icons\list.svg" />
+    <Content Include="public\icons\menu.svg" />
+    <Content Include="public\icons\more_vert.svg" />
+    <Content Include="public\icons\radio_button_checked.svg" />
+    <Content Include="public\icons\radio_button_unchecked.svg" />
+    <Content Include="public\icons\remove.svg" />
+    <Content Include="public\icons\search_black.svg" />
+    <Content Include="public\icons\settings.svg" />
+    <Content Include="public\icons\shopping_cart.svg" />
+    <Content Include="public\icons\star-exlib.svg" />
+    <Content Include="public\icons\star.svg" />
+    <Content Include="public\icons\storage.svg" />
+    <Content Include="public_dev\css\home.less" />
+    <Content Include="public_dev\my\blog\index.htm" />
+    <Content Include="public_dev\my\course\index.htm" />
+    <Content Include="public_dev\my\index\index.htm" />
+    <Content Include="public_dev\qq_auth_callback.htm" />
+    <Content Include="public_dev\_mg\admins\admins.htm" />
+    <Content Include="public_dev\_mg\admin_chgpwd\admin_chgpwd.htm" />
+    <Content Include="public_dev\_mg\admin_chgpwd_self\admin_chgpwd_self.htm" />
+    <Content Include="public_dev\_mg\admin_new\admin_new.htm" />
+    <Content Include="public_dev\_mg\admin_permissions\admin_permissions.htm" />
+    <Content Include="public_dev\_mg\admin_permission_new\admin_permission_new.htm" />
+    <Content Include="public_dev\_mg\admin_permission_update\admin_permission_update.htm" />
+    <Content Include="public_dev\_mg\admin_role_new\admin_role_new.htm" />
+    <Content Include="public_dev\_mg\admin_role_update\admin_role_update.htm" />
+    <Content Include="public_dev\_mg\admin_update\admin_update.htm" />
+    <Content Include="public_dev\_mg\imgs\loginbk.jpg" />
+    <Content Include="public_dev\_mg\index\index.htm" />
+    <Content Include="public_dev\_mg\login.htm" />
+    <Content Include="public_dev\_mg\mg_sysconf\mg_sysconf.htm" />
+    <Content Include="public_dev\_mg\mg_sysconf_check\mg_sysconf_check.htm" />
+    <Content Include="public_dev\_mg\mg_users\mg_users.htm" />
+    <Content Include="public_dev\_mg\mg_users_check\mg_users_check.htm" />
+    <Content Include="README.md" />
+    <Content Include="views\blogs.jade" />
+    <Content Include="views\course.jade" />
+    <Content Include="views\home.jade" />
+    <Content Include="views\index.jade" />
+    <Content Include="views\error.jade" />
+    <Content Include="views\showtime.jade" />
+    <Content Include="views\_home.jade" />
+    <Content Include="views\_layout.jade" />
+    <Content Include="views\_mg.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="api\" />
+    <Folder Include="bin\" />
+    <Folder Include="bll\" />
+    <Folder Include="dal\" />
+    <Folder Include="entity\" />
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\fonts\" />
+    <Folder Include="public\home\" />
+    <Folder Include="public\home\cyf\" />
+    <Folder Include="public\icons\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\imgs\" />
+    <Folder Include="public\jslib\" />
+    <Folder Include="public\csslib\" />
+    <Folder Include="public_dev\" />
+    <Folder Include="public_dev\css\" />
+    <Folder Include="public_dev\js\" />
+    <Folder Include="public_dev\my\" />
+    <Folder Include="public_dev\my\course\" />
+    <Folder Include="public_dev\my\index\" />
+    <Folder Include="public_dev\my\blog\" />
+    <Folder Include="public_dev\_mg\" />
+    <Folder Include="public_dev\_mg\admins\" />
+    <Folder Include="public_dev\_mg\admin_chgpwd\" />
+    <Folder Include="public_dev\_mg\admin_chgpwd_self\" />
+    <Folder Include="public_dev\_mg\admin_new\" />
+    <Folder Include="public_dev\_mg\admin_permissions\" />
+    <Folder Include="public_dev\_mg\admin_permission_new\" />
+    <Folder Include="public_dev\_mg\admin_permission_update\" />
+    <Folder Include="public_dev\_mg\admin_role_new\" />
+    <Folder Include="public_dev\_mg\admin_role_update\" />
+    <Folder Include="public_dev\_mg\admin_update\" />
+    <Folder Include="public_dev\_mg\imgs\" />
+    <Folder Include="public_dev\_mg\index\" />
+    <Folder Include="public_dev\_mg\mg_sysconf\" />
+    <Folder Include="public_dev\_mg\mg_sysconf_check\" />
+    <Folder Include="public_dev\_mg\mg_users\" />
+    <Folder Include="public_dev\_mg\mg_users_check\" />
+    <Folder Include="public_dev\_mg\services\" />
+    <Folder Include="routes\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="typings\index.d.ts" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

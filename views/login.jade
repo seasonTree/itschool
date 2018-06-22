@@ -1,0 +1,36 @@
+﻿extends _layout
+
+block content
+    div
+        | 微信二维码
+        button#btnQQLogin QQ登录
+    script(type="text/javascript").
+        var redirectToFrom = function(){
+            var ps = getQueryParams(location.href),
+                f = ps.f;
+            if(f){
+                f = decodeURIComponent(f);
+            }else{
+                f = '/';
+            }
+            location.href = f;
+        };
+        $('#btnQQLogin').click(function(){
+            qq_Login(function(d){
+                if(d.err == 0){ // 登录成功
+                    if(d.state == 2){
+                        if(confirm('已在其它地方登录，是否强制对方下线？')){
+                            $.post('/api/user/obliged', {}, function(data){
+                                if(data.err == 0){
+                                    redirectToFrom();
+                                }
+                            });
+                        }
+                    }else{
+                        redirectToFrom();
+                    }
+                }else{//登录失败
+                    
+                }
+            });
+        });

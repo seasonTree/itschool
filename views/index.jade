@@ -1,0 +1,21 @@
+﻿extends _layout
+
+block content
+    h1= title
+    div
+        a(href="/course") 课程
+    div
+        a(href="/blogs") 百家争鸣 | 百家之言 | 百家博文
+    div
+        a(href="/showtime") 作品秀
+    div
+        a(href="/home") 主页
+    div
+        button#btn QQ登录
+    script(type="text/javascript").
+        //qq_bindLogin('btn');
+        $('#btn').click(function(){
+            qq_Login(function(re){
+                console.log(re);
+            });
+        });

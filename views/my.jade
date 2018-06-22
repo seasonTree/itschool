@@ -1,0 +1,24 @@
+﻿doctype html
+html
+    head
+        title 我的 - XX学堂
+        link(rel='stylesheet', href='/csslib/swiper-3.4.2.min.css')
+        link(rel='stylesheet', href='/css/my.css')
+        script(type="text/javascript", src="/jslib/jquery.js")
+        script(type="text/javascript", src="/jslib/swiper-3.4.2.jquery.min.js")
+        script(type="text/javascript", src="/jslib/require.js")
+        script(type="text/javascript", src="/js/my.js")
+    body
+        div(class="head")
+            div(class="head_top")
+                a(href="/") 首页
+                a(href="/course.htm") 课程
+                a(href="/blogs.htm") 百家争鸣
+                a(href="/showtime.htm") 作品秀
+            div(class="head_main")
+                button(class="btnBack") 返回
+                a(href="#") 我的
+                a(id="aCourse", href="#{urlcourse}") 课程管理
+                a(id="aBlog", href="#{urlblog}") 博客管理
+                a(id="aMyHome", href="#{urlmyhome}") 我的主页
+        div#container
